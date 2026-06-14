@@ -10,10 +10,14 @@ const createLocation = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Name, code and address are required");
   }
 
-  const existingLocation = await Location.findOne({ code });
-  if (existingLocation) {
+const existingLocation =
+    await Location.findOne({
+        code: code.toUpperCase()
+    });  
+    
+if (existingLocation) {
     throw new ApiError(409, "Location already exists");
-  }
+}
 
   const location = await Location.create({
     name,
@@ -66,7 +70,7 @@ const updateLocation = asyncHandler(async (req, res) => {
 
   return res
     .status(200)
-    .json(new ApiResponse(updateLocation, "Location updated successfully"));
+    .json(new ApiResponse(200,updateLocation, "Location updated successfully"));
 });
 
 const deleteLocation = asyncHandler(async (req, res) => {
