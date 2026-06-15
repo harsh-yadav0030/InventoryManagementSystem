@@ -21,6 +21,6 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/locations",locationRouter);
 app.use("/api/v1/products",productRouter);
-app.use("api/v1/inventory",inventoryRouter);
+app.use("/api/v1/inventory", inventoryRouter);
 
 export default app;

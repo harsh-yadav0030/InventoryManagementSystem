@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 //how much amount of a product available at a location
 
 const inventorySchema = new mongoose.Schema(
